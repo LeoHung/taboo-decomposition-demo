@@ -1,0 +1,17 @@
+@author: San-Chuan Hung
+
+This project is for generating demo pages of taboo-decomposition on airlines data.
+It requires the cluster result as "airport_id,airport_id,airline_id" format. The
+ids are assumed hashed, and it also requires a mapping file. Given airport data
+file, conversion mapping file, and cluster files, gen_js.py generates the output
+javascript file to store the locations of the airports. And then, gen_page.py
+can generate demo html files based on the javascript files.
+
+Sample usage:
+
+python gen_js.py airports.dat conv_airports out.0/part* > out/out.0.js
+python gen_js.py airports.dat conv_airports out.1/part* > out/out.1.js
+python gen_js.py airports.dat conv_airports out.2/part* > out/out.2.js
+python gen_js.py airports.dat conv_airports out.3/part* > out/out.3.js
+
+python gen_page.py out/ AIzaSyD3xACEruO96pXttoYtYtNKn52E2-K4zE0
