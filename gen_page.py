@@ -36,17 +36,20 @@ The following code is modified from "KDD submission", whose origin author is Ped
     <!-- The element that will contain our Google Map. This is used in both the Javascript and CSS above. -->
     <div id="map"></div>
     <div id="title">
-      <h1>Taboo-Decomposition Cluster %d</h1>
+      <h1>Taboo-Decomposition Cluster %s</h1>
     </div>
   </body>
 </html>
 """
+cluster_names = []
 
-for i, filename in enumerate(os.listdir(sys.argv[1])):
+for filename in os.listdir(sys.argv[1]):
+  cluster_name = filename.rsplit(".", 1)[0]
+  cluster_names.append(cluster_name)
   js_path = sys.argv[1] + "/" + filename
-  out_filename = "cluster_%d.html" % i
+  out_filename = "cluster_%s.html" % cluster_name
   outf = open(out_filename, "w")
-  print >>outf, template % (GoogleAPI_ID, js_path, i)
+  print >>outf, template % (GoogleAPI_ID, js_path, cluster_name)
   outf.close()
 
 index_template = """
@@ -69,8 +72,6 @@ outf = open("index.html", "w")
 href_array = []
 num_pages = len(os.listdir(sys.argv[1]))
 href_html = "\n".join(
-  map(lambda x: "<li><a href='cluster_%d.html'>cluster %d</a></li>" % (x, x),range(num_pages)))
+  map(lambda x: "<li><a href='cluster_%s.html'>cluster %s</a></li>" % (x, x), cluster_names))
 print >> outf, index_template % href_html
 outf.close()
-
-
