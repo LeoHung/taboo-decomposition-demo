@@ -36,7 +36,7 @@ The following code is modified from "KDD submission", whose origin author is Ped
     <!-- The element that will contain our Google Map. This is used in both the Javascript and CSS above. -->
     <div id="map"></div>
     <div id="title">
-      <h1>Taboo-Decomposition Cluster %s</h1>
+      <h1>Cluster %s</h1>
     </div>
   </body>
 </html>
