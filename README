@@ -1,4 +1,5 @@
-@author: San-Chuan Hung
+@author: San-Chuan Hung (sanchuah@andrew.cmu.edu)
+@date: Dec 15, 2015
 
 This project is for generating demo pages of taboo-decomposition on airlines data.
 It requires the cluster result as "airport_id,airport_id,airline_id" format. The
